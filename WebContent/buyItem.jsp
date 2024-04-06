@@ -63,15 +63,30 @@
             <s:form action="BuyItemAction">
                 <table>
                     <tr>
-                        <td><span>商品名</span></td>
-                        <td><span>値段</span></td>
-                        <td><span>在庫</span></td>
-                        <td><span>支払い方法</span></td>
+                        <td>
+                            <span>商品名</span>
+                        </td>
+                        <td>
+                            <!-- 左側に商品名を表示 -->
+                            <s:property value="session.buyItem_name" />
+                        </td>
                     </tr>
                     <tr>
-                        <td><s:property value="session.buyItem_name" /></td>
-                        <td><s:property value="session.buyItem_price" /><span>円</span></td>
                         <td>
+                            <span>値段</span>
+                        </td>
+                        <td>
+                            <!-- 左側に値段を表示 -->
+                            <s:property value="session.buyItem_price" />
+                            <span>円</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>在庫</span>
+                        </td>
+                        <td>
+                            <!-- 右側に在庫を表示 -->
                             <select name="stock">
                                 <option value="1" selected="selected">1</option>
                                 <option value="2">2</option>
@@ -80,13 +95,22 @@
                                 <option value="5">5</option>
                             </select>
                         </td>
+                    </tr>
+                    <tr>
                         <td>
+                            <span>支払い方法</span>
+                        </td>
+                        <td>
+                            <!-- 右側に支払い方法を表示 -->
                             <input type="radio" name="pay" value="1" checked="checked">現金払い
                             <input type="radio" name="pay" value="2">クレジットカード
                         </td>
                     </tr>
                     <tr>
-                        <td><s:submit value="購入" /></td>
+                        <!-- 購入ボタンを右側に移動 -->
+                        <td colspan="2" align="right">
+                            <input type="submit" value="購入" />
+                        </td>
                     </tr>
                 </table>
             </s:form>
